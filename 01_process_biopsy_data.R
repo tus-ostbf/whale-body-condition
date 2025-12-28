@@ -12,7 +12,9 @@ processed_data <- raw_data %>%
   mutate(
     total_lipid = rowSums(across(starts_with("FA_"))),
     # Add other derived variables as needed
-    lipid_percent = total_lipid / blubber_mass * 100
+    lipid_percent = total_lipid / blubber_mass * 100,
+    # Calculate DHA/EPA ratio as a biomarker of recent foraging quality
+    dha_epa_ratio = FA_DHA / FA_EPA
   )
 
 # Save processed data
