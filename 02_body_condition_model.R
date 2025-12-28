@@ -7,8 +7,8 @@ library(tidyverse)
 # Load processed data
 processed_data <- read_csv("data/processed_biopsy_data.csv")
 
-# Fit linear model with total lipid as predictor
-model <- lm(BCI ~ total_lipid, data = processed_data)
+# Fit linear model with total lipid and DHA/EPA ratio as predictors
+model <- lm(BCI ~ total_lipid + dha_epa_ratio, data = processed_data)
 
 # Summarize model
 summary(model)
